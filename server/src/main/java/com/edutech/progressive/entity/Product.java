@@ -1,7 +1,16 @@
 package com.edutech.progressive.entity;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "product")
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
+
     private int warehouseId;
     private String productName;
     private String productDescription;
@@ -11,8 +20,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(int productId, int warehouseId, String productName, String productDescription, int quantity,
-            Long price) {
+    public Product(int productId, int warehouseId, String productName,
+                   String productDescription, int quantity, Long price) {
         this.productId = productId;
         this.warehouseId = warehouseId;
         this.productName = productName;
@@ -68,5 +77,4 @@ public class Product {
     public void setPrice(Long price) {
         this.price = price;
     }
-
 }
